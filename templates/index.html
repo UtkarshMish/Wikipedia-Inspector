@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<head>
+    <link rel="shortcut icon" type="image/png" href="../static/images/g.html"/>
+    <title>Wikipedia Inspector</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="project site"/>
+    <meta name="author" content="Utkarsh Mishra"/>
+    <link
+            rel="stylesheet"
+            href="../static/maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link
+            rel="stylesheet"
+            href="../static/stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+            href="../static/fonts.googleapis.com/css3403.css?family=Acme"
+            rel="stylesheet"
+    />
+    <link
+            href="../static/fonts.googleapis.com/css4874.css?family=Raleway:400,300,600"
+            rel="stylesheet"
+    />
+    <link
+            href="../static/fonts.googleapis.com/css91c3.css?family=Montserrat&amp;display=swap"
+            rel="stylesheet"
+    />
+    <link
+            href="../static/fonts.googleapis.com/css6dc4.css?family=Playfair+Display&amp;display=swap"
+            rel="stylesheet"
+    />
+    <link
+            href="../static/fonts.googleapis.com/css128f.css?family=Fira+Sans&amp;display=swap"
+            rel="stylesheet"
+    />
+</head>
+<style>
+    .main-head {
+        padding-top: 30px;
+        font-size: 70px;
+        font-family: "Raleway", fantasy;
+    }
+
+    h5 {
+        padding-top: 10px;
+        font-family: "Raleway", fantasy;
+    }
+
+    /*
+    .text-form{
+        margin-left: 25px;
+        margin-right: 50px;
+    }
+*/
+
+    /*
+    .file-form{
+        margin-right: 10px;
+    }
+*/
+
+    /*
+    .row{
+        padding-left: 50px;
+        padding-top: 40px;
+    }
+*/
+
+    .text-form {
+        padding-left: 90px;
+        padding-right: 40px;
+    }
+
+    .file-form {
+        padding-left: 40px;
+        padding-right: 90px;
+    }
+
+    .table-div {
+        margin-left: 70px;
+        margin-right: 90px;
+        padding-top: 60px;
+        /*        padding-bottom: 60px;*/
+        font-family: "Raleway", fantasy;
+    }
+
+    .result-head {
+        font-family: "Raleway", cursive;
+    }
+
+    @media screen and (max-width: 600px) {
+        .text-form {
+            padding: 0;
+        }
+
+        .file-form {
+            padding: 0;
+        }
+    }
+</style>
+
+<body>
+<div class="text-center">
+    <h1 class="main-head">Wikipedia Inspector</h1>
+    <h5>
+        <strong
+        >A PROGRAM THAT CAN BE USED TO CHECK WHETHER OR NOT A GIVEN WIKIPEDIA
+            COMMENT (IN HINDI LANGUAGE) IS ABUSIVE.</strong
+        >
+    </h5>
+</div>
+<div class="row">
+    <div class="col-sm-6 text-form">
+        <form method="POST" onsubmit="getData(event,0);">
+            <div class="form-group">
+                <label for="text-box">TEXT INPUT</label>
+                <input
+                        type="text"
+                        name="text"
+                        class="form-control"
+                        id="text-box"
+                        aria-describedby="label-text"
+                        placeholder="Enter Hindi tweet"
+                />
+                <small id="emailHelp" class="form-text text-muted"></small>
+            </div>
+            <button type="submit" class="btn btn-primary frm-btn">
+                GET RESULTS
+            </button>
+        </form>
+    </div>
+    <div class="col-sm-6 file-form">
+        <form
+                method="POST" onsubmit="getData(event,1);"
+        >
+            <div class="form-group file-input">
+                <label for="file-input-json">EXCEL FILE INPUT</label>
+                <input
+                        type="file"
+                        name="file"
+                        class="form-control"
+                        id="file-input-xlsx"
+                />
+            </div>
+            <button type="submit" class="btn btn-primary frm-btn">
+                GET RESULTS
+            </button>
+        </form>
+    </div>
+</div>
+<div class="table-div">
+    <div class="table-header nav-divider">
+        <h1 class="result-head ">Prediction Results</h1>
+        <button onclick="clearData();" name="clear" class="btn-danger">Clear</button>
+    </div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tweet</th>
+            <th scope="col">Value</th>
+            <!--                    <th scope="col">Bernoulli Naive Bayes</th>-->
+            <th scope="col">Multinomial Naive Bayes</th>
+            <!--                    <th scope="col">CNN_RNN</th>-->
+            <!--                    <th scope="col">Decision Tree</th>-->
+            <th scope="col">Logistic Regression</th>
+            <th scope="col">Bag Of Words using Keras</th>
+            <!--
+                    <th scope="col">SVM Classifier</th>
+                    <th scope="col">Random Forest</th>
+-->
+        </tr>
+        </thead>
+
+        <tbody>
+        <td colspan="9">
+            <h3 style="color: red;">No results have been generated yet!</h3>
+        </td>
+        </tbody>
+    </table>
+</div>
+<script src="../static/main.js"></script>
+<script src="../static/ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="../static/maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../static/cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+</body>
+</html>
