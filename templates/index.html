@@ -91,6 +91,18 @@
         font-family: "Raleway", cursive;
     }
 
+    .cust-btn {
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 10%;
+    }
+
+    .table-header {
+        display: flex;
+        justify-content: space-around;
+        justify-items: left;
+    }
+
     @media screen and (max-width: 600px) {
         .text-form {
             padding: 0;
@@ -154,7 +166,7 @@
 <div class="table-div">
     <div class="table-header nav-divider">
         <h1 class="result-head ">Prediction Results</h1>
-        <button onclick="clearData();" name="clear" class="btn-danger">Clear</button>
+        <button onclick="clearData();" name="clear" class="btn-danger cust-btn">Clear</button>
     </div>
     <table class="table table-hover">
         <thead>

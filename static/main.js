@@ -2,9 +2,19 @@ let rowValue = 0;
 
 async function getData(event, value) {
     event.preventDefault();
+    switch (value) {
+        case 0:
+            if (!event.target.text.value) return;
+            break;
+        case 1:
+            if (event.target.file.value === "") return;
+            break;
+        default:
+            return;
+    }
     const jsonInput = JSON.stringify([{
-        'text': event.target.text.value, 'value': value
-    }])
+        'text': value === 0 ? event.target.text.value : event.target.file.files, 'value': value
+    }]);
     const response = await fetch('/predict', {
         method: 'POST',
         body: jsonInput, // string or object
@@ -21,8 +31,8 @@ async function getData(event, value) {
         const fourth = check_abusive(myJson['value']);
         const text = myJson['text'];
         const items = (`<tr>
-                    <th scope="row">${rowValue}</th>
-                    <td>${text}</td>
+                    <th scope="row">${rowValue + 1}</th>
+                    <td>${text.startsWith("{") ? (event.target.file.value.split("\\").pop()) : (text)}</td>
                     ${generate_row(first)}
                     ${generate_row(second)}
                     ${generate_row(third)}
